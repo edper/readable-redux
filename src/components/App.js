@@ -17,14 +17,14 @@ class App extends Component {
 
           // Header
           <AppBarHeader></AppBarHeader>
-          
+
           // Main Content
           <div id="content-wrapper">
             <div class="mui--appbar-height"></div>
               <div class="mui-container-fluid">
                 <h1>Brand.io</h1>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
+                  Lorem ipsum lorem dolor sit amet, consectetur adipiscing elit. Mauris
                   sollicitudin volutpat molestie. Nullam id tempor nulla. Aenean sit amet
                   urna et elit pharetra consequat. Aliquam fringilla tortor vitae lectus
                   tempor, tempor bibendum nunc elementum. Etiam ultrices tristique diam,
