@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import SideDrawer  from './SideDrawer'
 import AppBarHeader  from './AppBarHeader'
+import { connect } from 'react-redux'
 import '../css/App.css';
 import '../css/mui.min.css';
 import '../css/mui.main.css';
 import '../js/mui.min.js';
 import '../js/mui.main.js';
+import { getCategory, getPost, getAllPosts, 
+  addPost, removePost, addComment, 
+  removeComentFromPost
+} from '../actions'
 
 
 class App extends Component {
@@ -73,4 +78,27 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps ({ post, comment }) {
+
+  return {
+    post: post,
+    comment: comment,
+  }
+}
+
+function mapDispatchToProps (dispatch) {
+  return {
+    getCategory: (data) => dispatch(getCategory(data)), 
+    getPost: (data) => dispatch(getPost(data)), 
+    getAllPosts: (data) => dispatch(getAllPosts(data)), 
+    addPost: (data) => dispatch(addPost(data)),
+    removePost: (data) => dispatch(removePost(data)),
+    addComment: (data) => dispatch(addComment(data)),
+    removeCommentFromPost: (data) => dispatch(removeCommentFormPost(data))
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App)

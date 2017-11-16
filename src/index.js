@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
-import { createStore, applyMiddleware, compose } from 'redux'
-import reducer from './reducers'
-import { Provider } from 'react-redux'
-
+import { createStore, applyMiddleware, compose } from 'redux';
+import rootReducer from './reducers';
+import thunk from 'react-thunk';
+import { Provider } from 'react-redux';
 
 const logger = store => next => action => {
     let result = next(action);
@@ -16,9 +16,9 @@ const logger = store => next => action => {
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
   
   const store = createStore(
-    reducer,
+    rootReducer,
     composeEnhancers(
-      applyMiddleware(logger)
+      applyMiddleware(thunk)
     )
   )
   
