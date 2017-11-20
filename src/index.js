@@ -5,7 +5,7 @@ import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from './reducers';
-import thunk from 'react-thunk';
+import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 
 const logger = store => next => action => {

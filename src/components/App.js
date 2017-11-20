@@ -9,24 +9,29 @@ import '../js/mui.min.js';
 import '../js/mui.main.js';
 import { getCategory, getPost, getAllPosts, 
   addPost, removePost, addComment, 
-  removeComentFromPost
+  removeComentFromPost, fetchCategories
 } from '../actions'
 
 
 class App extends Component {
+  
+  componentDidMount(){
+    console.log('cat : '+this.props.getCategories());
+  }
+
   render() {
     return (
       <div>
           // Side Menu or Side Drawer
-          <SideDrawer></SideDrawer>
+          <SideDrawer categories={this.props.categories}></SideDrawer>
 
           // Header
           <AppBarHeader></AppBarHeader>
 
           // Main Content
           <div id="content-wrapper">
-            <div class="mui--appbar-height"></div>
-              <div class="mui-container-fluid">
+            <div className="mui--appbar-height"></div>
+              <div className="mui-container-fluid">
                 <h1>Brand.io</h1>
                 <p>
                   Lorem ipsum lorem dolor sit amet, consectetur adipiscing elit. Mauris
@@ -68,7 +73,7 @@ class App extends Component {
           // Footer
           <footer id="footer">
             <br />
-            <div class="mui-container-fluid">
+            <div className="mui-container-fluid">
                  Theme by <a href="https://www.muicss.com">MUI</a>
             </div>
           </footer>
@@ -78,23 +83,18 @@ class App extends Component {
   }
 }
 
-function mapStateToProps ({ post, comment }) {
+function mapStateToProps ({post, comment, categories}) {
 
   return {
     post: post,
     comment: comment,
+    categories: categories,
   }
 }
 
 function mapDispatchToProps (dispatch) {
   return {
-    getCategory: (data) => dispatch(getCategory(data)), 
-    getPost: (data) => dispatch(getPost(data)), 
-    getAllPosts: (data) => dispatch(getAllPosts(data)), 
-    addPost: (data) => dispatch(addPost(data)),
-    removePost: (data) => dispatch(removePost(data)),
-    addComment: (data) => dispatch(addComment(data)),
-    removeCommentFromPost: (data) => dispatch(removeCommentFormPost(data))
+    getCategories: () => dispatch(fetchCategories())
   }
 }
 
