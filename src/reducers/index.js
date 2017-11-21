@@ -29,8 +29,7 @@ function comment (state = {}, action) {
 function categories (state = {}, action) {
   switch (action.type) {
     case GET_CATEGORIES:
-        const {categories} = action
-        return {categories};
+        return action.categories;    
     default :
       return state
   }

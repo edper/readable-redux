@@ -7,7 +7,7 @@ import '../css/mui.min.css';
 import '../css/mui.main.css';
 import '../js/mui.min.js';
 import '../js/mui.main.js';
-import { getCategory, getPost, getAllPosts, 
+import { getCategoriesSuccess, getPost, getAllPosts, 
   addPost, removePost, addComment, 
   removeComentFromPost, fetchCategories
 } from '../actions'
@@ -16,7 +16,7 @@ import { getCategory, getPost, getAllPosts,
 class App extends Component {
   
   componentDidMount(){
-    console.log('cat : '+this.props.getCategories());
+    this.props.getCategories();
   }
 
   render() {

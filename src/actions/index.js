@@ -10,7 +10,7 @@ export const ADD_COMMENT = 'ADD_COMMENT';
 export const REMOVE_COMMENT_FROM_POST = 'REMOVE_COMMENT_FROM_POST';
 
 
-export function getCategoriesSuccess ({categories}) {
+export function getCategoriesSuccess (categories) {
   return {
     type: GET_CATEGORIES,
     categories
@@ -64,9 +64,9 @@ export function addComment ({ ParentID, comment }) {
 
 export function fetchCategories() {
     return (dispatch) => {
-            fetch('http://localhost:3001/categories', { headers: {
+            fetch(`${url}/categories`, { headers: {
               'Accept': 'application/json',
-              'Authorization': 'JESUSisPeace'
+              'Authorization': 'JESUSisLord'
              }})
             .then((response) => response.json())
             .then((categories) => dispatch(getCategoriesSuccess(categories)));
